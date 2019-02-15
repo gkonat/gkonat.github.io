@@ -1,0 +1,12 @@
+---
+---
+@import "{{ site.theme }}";
+
+// Remove github banner.
+#forkme_banner { display: none; }
+
+// Remove footer.
+footer { display: none; }
+
+// Justify paragraph text.
+p { text-align: justify; }
