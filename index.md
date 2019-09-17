@@ -11,6 +11,10 @@ This page lists my scientific publications and projects I've worked on, my exper
 
 ## Publications
 
+2019
+
+Gabriël Konat, Roelof Sol, Sebastian Erdweg, and Eelco Visser: __[Precise, Efficient, and Expressive Incremental Build Scripts with PIE](assets/publication/pie-ic19.pdf)__. IC 2019. [[Link](https://2019.splashcon.org/details/ic-2019-papers/3/Precise-Efficient-and-Expressive-Incremental-Build-Scripts-with-PIE)]
+
 2018
 
 <a name="sbuild"></a> Gabriël Konat, Sebastian Erdweg, and Eelco Visser: __[Scalable Incremental Building with Dynamic Task Dependencies](assets/publication/scalable_incremental_building-ase18.pdf)__. ASE 2018. [[DOI](https://doi.org/10.1145/3238147.3238196)]
