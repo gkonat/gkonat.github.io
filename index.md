@@ -7,7 +7,11 @@ I am a PhD candidate in the [Programming Languages Research Group](https://www.t
 
 The overarching theme of my research is *language-parametric methods for developing interactive programming systems*. A language-parametric method takes as input a description of a programming language (such as a DSL), and automatically implements (parts of) an interactive programming system, reducing development effort, thereby making programming language development more feasible.
 
-This page lists my scientific publications and projects I've worked on, my experience and education, and my contact information.
+This page lists my dissertation, scientific publications and projects I've worked on, my experience and education, and my contact information.
+
+## Dissertation
+
+__[Language-Parametric Methods for Developing Interactive Programming Systems](assets/dissertation/konat_dissertation.pdf)__. 2019. [[Cover](assets/dissertation/konat_cover.pdf)] [[Propositions](assets/dissertation/konat_propositions.pdf)] [[Raw Dissertation](assets/dissertation/konat_dissertation_raw.pdf)]
 
 ## Publications
 
