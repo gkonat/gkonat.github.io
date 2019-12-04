@@ -3,7 +3,7 @@
 
 <img src="assets/image/small.jpg" alt="Gabriël Konat" style="float: right; margin-left: 20px; margin-bottom: 20px; margin-top: 0px;">
 
-I am a PhD candidate in the [Programming Languages Research Group](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/) at the [Delft University of Technology](https://www.tudelft.nl/) supervised by [Eelco Visser](http://eelcovisser.org/). I am interested in domain-specific languages (DSLs), language workbenches, incremental execution, and software development pipelines (e.g., build scripts) and and their use in interactive environments such as IDEs.
+I am a postdoctoral researcher in the [Programming Languages Research Group](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/) at the [Delft University of Technology](https://www.tudelft.nl/) supervised by [Eelco Visser](http://eelcovisser.org/). I am interested in domain-specific languages (DSLs), language workbenches, incremental execution, and software development pipelines (e.g., build scripts) and and their use in interactive environments such as IDEs.
 
 The overarching theme of my research is *language-parametric methods for developing interactive programming systems*. A language-parametric method takes as input a description of a programming language (such as a DSL), and automatically implements (parts of) an interactive programming system, reducing development effort, thereby making programming language development more feasible.
 
@@ -71,7 +71,13 @@ Spoofax is a large project with many components that are being worked on in our 
 
 ## Experience and Education
 
-__2012 - present__
+__2018 - present__
+
+Postdoctoral researcher.
+*Delft University of Technology*.
+Department of Software Technology, Programming Languages Research Group
+
+__2012 - 2018__
 
 Ph.D. in Computer Science.
 *Delft University of Technology*.
