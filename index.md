@@ -3,7 +3,8 @@
 
 <img src="assets/image/small.jpg" alt="Gabriël Konat" style="float: right; margin-left: 20px; margin-bottom: 20px; margin-top: 0px;">
 
-I am a postdoctoral researcher in the [Programming Languages Research Group](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/) at the [Delft University of Technology](https://www.tudelft.nl/) supervised by [Eelco Visser](http://eelcovisser.org/). I am interested in domain-specific languages (DSLs), language workbenches, incremental execution, and software development pipelines (e.g., build scripts) and and their use in interactive environments such as IDEs.
+I am a postdoctoral researcher in the [Programming Languages Research Group](https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/programming-languages/) at the [Delft University of Technology](https://www.tudelft.nl/). 
+I am interested in incremental build systems, software development pipelines (e.g., build scripts) and their use in interactive environments such as IDEs, language workbenches, and domain-specific languages (DSLs).
 
 The overarching theme of my research is *language-parametric methods for developing interactive programming systems*. A language-parametric method takes as input a description of a programming language (such as a DSL), and automatically implements (parts of) an interactive programming system, reducing development effort, thereby making programming language development more feasible.
 
@@ -23,7 +24,7 @@ Gabriël Konat, Roelof Sol, Sebastian Erdweg, and Eelco Visser: __[Precise, Eff
 
 <a name="sbuild"></a> Gabriël Konat, Sebastian Erdweg, and Eelco Visser: __[Scalable Incremental Building with Dynamic Task Dependencies](assets/publication/scalable_incremental_building-ase18.pdf)__. ASE 2018. [[DOI](https://doi.org/10.1145/3238147.3238196)]
 
-<a name="pie"></a> Gabriël Konat, Michael J. Steindorfer, Sebastian Erdweg, and Eelco Visser: __[PIE: A Domain-Specific Language for Interactive Software Development Pipelines](assets/publication/pie-programming18.pdf)__. Programming Journal 2.3 (2018). [[DOI](https://doi.org/10.22152/programming-journal.org/2018/2/9)]
+<a name="pie_dsl"></a> Gabriël Konat, Michael J. Steindorfer, Sebastian Erdweg, and Eelco Visser: __[PIE: A Domain-Specific Language for Interactive Software Development Pipelines](assets/publication/pie-programming18.pdf)__. Programming Journal 2.3 (2018). [[DOI](https://doi.org/10.22152/programming-journal.org/2018/2/9)]
 
 2016
 
@@ -55,6 +56,34 @@ Sebastian Erdweg, Tijs van der Storm, Markus Völter, Meinte Boersma, Remi Bosm
 
 ## Projects
 
+### PIE: A Programmatic Incremental Build System
+
+PIE is a [Programmatic Incremental Build System](#pibs), which is a hybrid incremental build system and incremental computation system with the following key properties:
+
+- Programmatic: Build scripts are regular programs written in a programming language, where parts of the build script implement an API from the build system. This enables build authors to write incremental builds with the full expressiveness of the programming language.
+- Incremental: Builds are truly incremental – only the parts of a build that are affected by changes are executed.
+- Correct: Builds are fully correct – all parts of the build that are affected by changes are executed. Builds are free of glitches: only up-to-date (consistent) data is observed.
+
+There are currently two implementations of PIE:
+
+- [PIE in Rust](https://github.com/gohla/pie)
+- [PIE in Java](https://github.com/metaborg/pie)
+
+I've published two papers on PIE:
+
+- [Scalable Incremental Building with Dynamic Task Dependencies](#sbuild) which describes a hybrid incremental build algorithm that builds from the bottom-up, only switching to top-down building when necessary. Bottom-up builds are more efficient with changes that have a small effect (i.e., most changes), due to only checking the part of the dependency graph affected by changes. Therefore, this algorithm scales down to small changes while scaling up to large dependency graphs.
+- [PIE: A Domain-Specific Language for Interactive Software Development Pipelines](#pie_dsl) which describes a domain-specific language (DSL) for programmatic incremental build systems, and introduces the PIE library in Kotlin. This implementation was later changed to a pure Java library to reduce the number of dependencies.
+
+### [Build your own Programmatic Incremental Build System](https://gohla.github.io/pibs/)
+
+<a name="pibs"></a>
+
+In order to better explain the concepts behind Programmatic Incremental Build Systems such as PIE, I've written a programming tutorial where you build one from scratch in Rust.
+The programming tutorial can be found here: <https://gohla.github.io/pibs/>
+
+The primary goal of the tutorial is to provide understanding of programmatic incremental build systems through implementation and experimentation.
+Although the tutorial uses Rust, you don’t need to be a Rust expert to follow it. A secondary goal of this tutorial is to teach more about Rust through implementation and experimentation, given that you already have programming experience (in another language) and are willing to learn.
+
 ### Spoofax
 
 The [Spoofax Language Workbench](http://www.metaborg.org/en/latest/) is a platform for developing textual (domain-specific) programming languages and their corresponding interactive programming systems. In Spoofax, programming languages are specified in declarative meta-DSLs for syntax, static semantics, dynamic semantics, transformations, and editor services. From such a specification, Spoofax generates a parser, name and type analysis, interpreter, compiler, and an Eclipse or IntelliJ code editor with editor services.
@@ -64,10 +93,6 @@ Spoofax is a large project with many components that are being worked on in our 
 * __NaBL, TS, and the task engine__ is a framework for incremental name and type analysis in Spoofax. [NaBL](#nabl) is a meta-DSL for declaratively specifying the name and scope rules of a language. TS is a meta-DSL for simple type system specification. The [task engine](#taskengine) is a framework for incrementally executing name and type analysis tasks. NaBL and TS generate a tree traversal for collecting name and type tasks of an abstract syntax tree (AST), which the task engine then incrementally executes.
 * __Spoofax Core__ is a project to turn Spoofax, which was fully based on the Eclipse IDE in 2013, into a platform-independent language workbench core which could be integrated with any platform. This required a full reimplementation of the core language workbench logic, as well as a full reimplementation of the integration with Eclipse, Maven, and the command-line. Together with Vlad Vergu, Hendrik van Antwerpen, and Daniel Pelsmaeker, we successfully implemented Spoofax Core and its various integrations. Spoofax Core has powered (and is powering) parts of our research and is being used by Oracle Labs to develop several DSLs.
 * __Meta-DSL bootstrapping__ in Spoofax is important, as we want to reap the benefits of our own meta-DSLs to improve our own meta-DSLs. To that end, we have developed a [fixpoint bootstrapping approach](#bootstrapping) that versions meta-DSL compilers, records explicit dependencies between them, and iteratively self-applies meta-DSL compilers until either a defect is found, or a new baseline is created when a fixpoint is found.
-
-### PIE: Pipelines for Interactive Environments
-
-[PIE](#pie) is a DSL, API, and runtime for developing interactive software development pipelines, such as IDEs which need to process events responsively in a live environment, but also incremental build scripts which need to provide timely feedback. With PIE, pipeline developers can concisely write pipeline programs in terms of tasks and dependencies between tasks and files, which the PIE runtime then incrementally executes. We have developed a [change-driven incremental build algorithm](#sbuild) that makes incremental execution of PIE programs scale down to many low-impact changes, while scaling up to large dependency graphs.
 
 ## Experience and Education
 
