@@ -58,16 +58,18 @@ Sebastian Erdweg, Tijs van der Storm, Markus Völter, Meinte Boersma, Remi Bosm
 
 ### PIE: A Programmatic Incremental Build System
 
-PIE is a [Programmatic Incremental Build System](#pibs), which is a hybrid incremental build system and incremental computation system with the following key properties:
+PIE is a [Programmatic Incremental Build System](#pibs), which is a mix between an incremental build system and incremental computation system with the following key properties:
 
 - Programmatic: Build scripts are regular programs written in a programming language, where parts of the build script implement an API from the build system. This enables build authors to write incremental builds with the full expressiveness of the programming language.
 - Incremental: Builds are truly incremental – only the parts of a build that are affected by changes are executed.
 - Correct: Builds are fully correct – all parts of the build that are affected by changes are executed. Builds are free of glitches: only up-to-date (consistent) data is observed.
+- Automatic: The build system takes care of incrementality and correctness. Build authors do not have to manually implement incrementality. Instead, they only have to explicitly declare dependencies.
+- Multipurpose: The same build script can be used for incremental batch builds in a terminal, but also for live feedback in an interactive environment such as an IDE. For example, a compiler implemented in this build system can provide incremental batch compilation but also incremental editor services such as syntax highlighting or code completion.
 
 There are currently two implementations of PIE:
 
-- [PIE in Rust](https://github.com/gohla/pie)
-- [PIE in Java](https://github.com/metaborg/pie)
+- [PIE in Rust](https://github.com/gohla/pie): A reimplementation of the PIE in Java library, primarily simplifying the internals to make them easier to explain, but also to show that programmatic incremental build systems are programming-language agnostic. While still under development, it has decent test coverage and can be used for experimentation.
+- [PIE in Java](https://github.com/metaborg/pie): The first implementation of PIE.
 
 I've published two papers on PIE:
 
